@@ -1,0 +1,16 @@
+{
+  "name": "cypress-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-execution": "npx cypress run --browser=edge --headed --spec \"cypress/e2e/orange-hrm/*.js\" --env grepTags=\"smoke"
+  },
+  "author": "Aho",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.5.0",
+    "cypress-grep": "^3.0.3"
+  }
+}
