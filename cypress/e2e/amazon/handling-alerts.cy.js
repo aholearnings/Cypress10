@@ -7,6 +7,8 @@ describe('Alerts', () => {
         cy.get('#item-1 span.text').contains('Alerts').click()
 
         cy.get('#alertButton').click({force : true})
+
+        cy.log("Hello")
     
     })
 
