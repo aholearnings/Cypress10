@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-execution": "npx cypress run --browser=edge --headed --spec \"cypress/e2e/orange-hrm/*.js\" --env grepTags=\"smoke"
+    "test-execution": "npx cypress run --browser=edge --headed --spec \"cypress/e2e/orange-hrm/*.js\" --env grepTags=\"smoke",
+    "test-exec-dashboard": "npx cypress run --browser=chrome --headed --spec cypress/e2e/orange-hrm/*.js --record --key b6b81fc7-e254-485a-92a6-5dfc5d911fcf",
+    "trigger-tests": "npx cypress run --spec cypress/e2e/orange-hrm/*.js",
+    "multi-browser-execution": "npm run trigger-tests -- --browser=edge --headed & npm run trigger-tests -- --browser=chrome --headed"
   },
   "author": "Aho",
   "license": "ISC",
