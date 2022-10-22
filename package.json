@@ -5,12 +5,24 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-execution": "npx cypress run --browser=edge --headed --spec \"cypress/e2e/orange-hrm/*.js\" --env grepTags=\"smoke"
+    "test-execution": "npx cypress run --browser=edge --headed --spec \"cypress/e2e/orange-hrm/*.js\" --env grepTags=\"smoke",
+    "test-exec-dashboard1": "npx cypress run --browser=chrome --headed --spec cypress/e2e/pageobjectdesignpattern/*.js --record --key b6b81fc7-e254-485a-92a6-5dfc5d911fcf",
+    "trigger-tests": "npx cypress run --spec cypress/e2e/pageobjectdesignpattern/*.js",
+    "multi-browser-execution": "npm run trigger-tests -- --browser=edge --headed & npm run trigger-tests -- --browser=chrome --headed",
+    "single-browser-execution": "npm run trigger-tests -- --browser=chrome --headed",
+    "allure-execution": "npm run trigger-tests -- --browser=chrome --headed --env allure=true --reporter mocha-allure-reporter",
+    "allure-report": "allure generate allure-results --clean -o allure-report && allure open  allure-report",
+    "generate-allure-report": "npm run allure-execution && npm run allure-report"
   },
   "author": "Aho",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^10.5.0",
-    "cypress-grep": "^3.0.3"
+    "@shelex/cypress-allure-plugin": "^2.33.1",
+    "allure-commandline": "^2.18.1",
+    "cypress": "^10.10.0",
+    "cypress-grep": "^2.6.1",
+    "cypress-mochawesome-reporter": "^3.2.3",
+    "cypress-multi-reporters": "^1.6.1",
+    "mocha-allure-reporter": "^1.4.0"
   }
 }
